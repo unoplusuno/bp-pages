@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="google" content="notranslate" />
+
+    <script language="javascript" type="text/javascript" src="/static/js/jquery-1.10.2.min.js"></script>
+    <script language="javascript" type="text/javascript" src="/static/js/jquery.cookie.js"></script>
+
+</head>
+
+<body style="background-color: #f7f7f7;">
+
+    <p style="text-align: center;margin-top: 50px;font-size: 1.2em;">
+        Detecting language...
+    </p>
+
+    <script type="text/javascript">
+
+        var browser_lang = window.navigator.userLanguage || window.navigator.language;
+        if (browser_lang) {
+            browser_lang = browser_lang.substring(0, 2);
+            if (browser_lang == 'en'){
+                var all_browser_langs = window.navigator.languages || window.navigator.userLanguage;
+                if (all_browser_langs){
+                    for (var i=0; i < all_browser_langs.length; i++){
+                        var new_browser_lang = all_browser_langs[i].substring(0, 2);
+                        if (new_browser_lang != 'en') {
+                            browser_lang = new_browser_lang;
+                            break;
+                        }
+                    }
+                }
+            }
+        };
+        var lang = $.cookie('selected_lang') || $.cookie('last_lang');
+        var fallback =  browser_lang || 'en';
+        var final_lang = lang || fallback;
+        var url = '/' + final_lang + '/';
+        window.location.replace(url);
+
+    </script>
+
+</body>
+</html>
