@@ -509,31 +509,31 @@
     
     </div>
 
-    <script type="text/javascript">
 
-        var browser_lang = window.navigator.userLanguage || window.navigator.language;
-        if (browser_lang) {
-            browser_lang = browser_lang.substring(0, 2);
-            if (browser_lang == 'en'){
-                var all_browser_langs = window.navigator.languages || window.navigator.userLanguage;
-                if (all_browser_langs){
-                    for (var i=0; i < all_browser_langs.length; i++){
-                        var new_browser_lang = all_browser_langs[i].substring(0, 2);
-                        if (new_browser_lang != 'en') {
-                            browser_lang = new_browser_lang;
-                            break;
-                        }
-                    }
-                }
-            }
-        };
-        var lang = $.cookie('selected_lang') || $.cookie('last_lang');
-        var fallback =  browser_lang || 'en';
-        var final_lang = lang || fallback;
-        var url = '/' + final_lang + '/';
-        window.location.replace(url);
 
-    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
